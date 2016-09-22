@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-28 18:32:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.codehero.hibernate.helloapp.Friend" table="FRIEND">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="siteName" type="java.lang.String">
+            <column name="SITENAME" />
+        </property>
+        <property name="siteUrl" type="java.lang.String">
+            <column name="SITEURL" />
+        </property>
+        <property name="siteDesc" type="java.lang.String">
+            <column name="SITEDESC" />
+        </property>
+        <property name="sort" type="int">
+            <column name="SORT" />
+        </property>
+    </class>
+</hibernate-mapping>

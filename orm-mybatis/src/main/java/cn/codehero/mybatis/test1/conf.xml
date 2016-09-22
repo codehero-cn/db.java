@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <configuration>
+    <properties resource="cn/codehero/mybatis/test1/db.properties">
+    </properties>
+    
+    <!-- 配置别名 -->
+    <typeAliases>
+        <!--类的别名 -->
+        <typeAlias type="cn.codehero.mybatis.test1.User" alias="_User"/>
+        <!--包的别名 -->
+        <package name="cn.codehero.mybatis.test1"/>
+    </typeAliases>
+ <!-- 
+    development:开发模式
+    work:工作模式
+  -->
+     <environments default="development">
+         <environment id="development">
+             <transactionManager type="JDBC" />
+              <!-- 配置数据库连接信息方法1:使用db.properties文件 -->
+             <dataSource type="POOLED">
+                 <property name="driver" value="${driver}" />
+                 <property name="url" value="${url}" />
+                 <property name="username" value="${username}" />
+                 <property name="password" value="${password}" />
+             </dataSource>
+             
+             <!-- 配置数据库连接信息方法2:不用db.properties文件 -->
+             <!-- 
+             <dataSource type="POOLED">
+                 <property name="driver" value="com.mysql.jdbc.Driver" />
+                 <property name="url" value="jdbc:mysql://localhost:3306/mybatis" />
+                 <property name="username" value="root" />
+                 <property name="password" value="123456" />
+             </dataSource>
+              -->
+         </environment>
+     </environments>
+     <mappers>
+        <mapper resource="cn/codehero/mybatis/test1/userMapper.xml"/>
+        <mapper class="cn.codehero.mybatis.test2.UserMapper"/>
+     </mappers>
+ </configuration>
